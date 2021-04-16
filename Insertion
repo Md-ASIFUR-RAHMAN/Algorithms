@@ -1,0 +1,14 @@
+
+def insertion(ar):
+    for i in range(len(a)-1):
+        temp = a[i]
+        j = i-1
+        while(a[j]>temp and j>-1):
+            a[j+1] = a[j]
+            j=j-1
+        a[j+1] = temp
+    return ar
+
+
+a = [5,4,3,1,2,9,0,10]
+print(insertion(a))
