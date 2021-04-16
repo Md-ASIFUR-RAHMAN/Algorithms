@@ -1,0 +1,37 @@
+
+def insertion(ar):
+    for i in range(len(a)-1):
+        temp = a[i]
+        j = i-1
+        while(a[j]>temp and j>-1):
+            a[j+1] = a[j]
+            j=j-1
+        a[j+1] = temp
+    return ar
+
+def binary_search(ar,num):
+    l=0
+    r=len(a)-1
+    while(l<=r):
+        mid = (l+r)//2
+        if a[mid]==data:
+            print("Data Found ")
+            print("POSITION :",mid)
+            break
+        elif a[mid]>data:
+            r=mid-1
+        elif a[mid]<data:
+
+            l=mid+1
+
+    return ar
+
+
+
+
+a = [5,4,3,1,2,9,0,10]
+
+data = int(input("Enter Number :"))
+
+print(insertion(a))
+binary_search(a,data)
