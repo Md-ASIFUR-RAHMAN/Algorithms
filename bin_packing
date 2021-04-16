@@ -1,0 +1,17 @@
+
+def asifur(w, c):
+    a = 0
+    b = c
+    for i in range(len(w)):
+        if b >= w[i]:
+            b -=  w[i]
+        else:
+            a += 1
+            b = c - w[i]
+    return a
+
+
+w = [4, 8, 1, 4, 2, 1]
+c = 10
+
+print('we needs '+ str(asifur(w, c)) +" " + 'bins to accomodate all items')
