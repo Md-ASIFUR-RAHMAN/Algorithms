@@ -1,0 +1,28 @@
+
+
+def find_COIN(VALUE):
+
+
+    a = []
+
+
+    i = L - 1
+    while (i >= 0):
+
+        while (VALUE >= coin[i]):
+            VALUE = VALUE - coin[i]
+            a.append(coin[i])
+
+        i -= 1
+
+    for i in range(len(a)):
+        print('You will give him '+str(a[i]) + " " + 'taka')
+
+
+
+coin = [5,10,15, 20, 50, 100]
+
+L = len(coin)
+
+n= int(input("Enter coin :"))
+find_COIN(n)
