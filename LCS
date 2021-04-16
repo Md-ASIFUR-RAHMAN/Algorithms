@@ -1,0 +1,102 @@
+
+
+def ASIFUR_lcs1(X, Y):
+
+    m = len(X)
+    n = len(Y)
+
+
+    arr = [[1 for i in range(n + 1)] for j in range(m+1)]
+
+    for i in range(m + 1):
+        for j in range(n + 1):
+            if i == 0 or j == 0:
+                arr[i][j] = 0
+            elif X[i - 1] == Y[j - 1]:
+                arr[i][j] = arr[i - 1][j - 1] + 1
+
+            elif arr[i - 1][j] >= arr[i][j - 1]:
+                arr[i][j] = arr[i - 1][j]
+
+
+
+            elif arr[i - 1][j] <= arr[i][j - 1]:
+                arr[i][j] = arr[i][j - 1]
+
+
+
+    return arr[m][n]
+
+
+def ASIFUR_LCS2(X, Z):
+    m = len(X)
+    n = len(Z)
+
+    arr1 = [[1 for i in range(n + 1)] for j in range(m + 1)]
+
+
+    for i in range(m + 1):
+        for j in range(n + 1):
+            if i == 0 or j == 0:
+                arr1[i][j] = 0
+            elif X[i - 1] == Z[j - 1]:
+                arr1[i][j] = arr1[i - 1][j - 1] + 1
+
+            elif arr1[i - 1][j] >= arr1[i][j - 1]:
+                arr1[i][j] = arr1[i - 1][j]
+
+
+
+            elif arr1[i - 1][j] <= arr1[i][j - 1]:
+                arr1[i][j] = arr1[i][j - 1]
+
+
+    return arr1[m][n]
+
+def ASIFUR_LCS3(Y, Z):
+    m = len(Y)
+    n = len(Z)
+
+    arr2 = [[1 for i in range(n + 1)] for j in range(m + 1)]
+
+
+    for i in range(m + 1):
+        for j in range(n + 1):
+            if i == 0 or j == 0:
+                arr2[i][j] = 0
+            elif Y[i - 1] == Z[j - 1]:
+                arr2[i][j] = arr2[i - 1][j - 1] + 1
+
+            elif arr2[i - 1][j] >= arr2[i][j - 1]:
+                arr2[i][j] = arr2[i - 1][j]
+
+
+
+            elif arr2[i - 1][j] <= arr2[i][j - 1]:
+                arr2[i][j] = arr2[i][j - 1]
+
+
+    return arr2[m][n]
+
+
+
+T = int(input("How many test case :"))
+for q in range(T):
+    number =  int(input("How many charecter :"))
+    X = input()
+    Y = input()
+    Z = input()
+    if len(X) == number  and len(Y) == number  and len(Z) == number :
+        cat = ASIFUR_lcs1(X, Y)
+        tiger = ASIFUR_LCS2(X, Z)
+        lion = ASIFUR_LCS3(Y, Z)
+        print("\n")
+
+        if cat  > tiger and cat  > lion:
+            print(" cat and tiger DNA have more correlation ")
+        elif cat  < tiger and tiger > lion:
+            print("cat and lion DNA have more correlation ")
+        else:
+            print(" tiger and lion is too much similar")
+    else:
+        print("Enter {} charecter".format(number))
